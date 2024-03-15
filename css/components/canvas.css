@@ -2,11 +2,11 @@
     justify-content: center;
     gap: 1em;
 
-    width: 80vw;
+    width: 60vw;
     padding: 1em;
     margin: 10px auto;
 
-    background-color: lightsteelblue;
+    background-color: var(--primary-background);
     border: 1px solid lightgray;
 }
 
@@ -20,23 +20,7 @@ canvas {
 
     padding: 0.4em;
     border-radius: 20px;
+
+    background-color: var(--primary-2);
 }
 
-
-.select-img-container {
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    gap: 10px;
-}
-
-.select-img-container img {
-    width: 150px;
-    cursor: pointer;
-    filter: grayscale(.7);
-}
-
-.select-img-container img:hover {
-    transition: 1s;
-    filter: unset;
-}

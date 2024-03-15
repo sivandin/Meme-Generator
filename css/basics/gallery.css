@@ -1,0 +1,23 @@
+h2{
+    text-align: center;
+}
+
+.select-img-container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+
+    margin: 1em auto;
+}
+
+.select-img-container img {
+    width: 150px;
+    cursor: pointer;
+    filter: grayscale(.7);
+}
+
+.select-img-container img:hover {
+    transition: 1s;
+    filter: unset;
+}
