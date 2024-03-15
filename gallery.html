@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mama-Meme</title>
+    <title>Document</title>
 </head>
 
-<body onload="onInit()">
+<body onload="onInitGallery()">
     <div class="main-header-container full">
         <header class="main-header flex space-between align-center">
             <div class="logo">Mama-Meme<span>&#128516;</span></div>
             <nav class="main-nav">
                 <ul class="main-nav-list clean-list flex align-center space-between">
-                    <li><a class="mim-maker active" href="index.html">Mim-maker</a></li>
-                    <li><a class="gallery" href="gallery.html">Gallery</a></li>
+                    <li><a class="mim-maker" href="index.html">Mim-maker</a></li>
+                    <li><a class="gallery active" href="gallery.html">Gallery</a></li>
                     <li><a class="saved" href="#">Saved</a></li>
                     <li><a class="randomize" href="#">Randomize</a></li>
                 </ul>
@@ -24,18 +24,16 @@
     </div>
 
     <main>
-        <section class="canvas-container flex">
-            <canvas width="400" height="400"></canvas>
-            <div>
-                <input type="text" name="userTxt" oninput="onWritingTxt(this)" placeholder="Write down your text here">
-            </div>
-        </section>
+        <h2>1. Choose an image</h2>
+        <section class="select-img-container"></section>
     </main>
 
     <footer>Hi Footer</footer>
 
     <script src="js/servises.js/utils-service.js"></script>
+    <script src="js/servises.js/gallery-service.js"></script>
     <script src="js/servises.js/meme-service.js"></script>
+
 
     <script src="js/main.js"></script>
     <script src="js/controllers.js/meme-controller.js"></script>
@@ -44,4 +42,3 @@
 </body>
 
 </html>
-
