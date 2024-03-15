@@ -14,20 +14,17 @@ function onInit() {
 }
 
 function renderMeme() {
-    const meme = getMeme()
+    let selectedMeme = loadFromStorage('selectedMeme')
+    if (!selectedMeme) selectedMeme=gMeme
 
     const img = new Image()
-    img.src = `img/${meme.selectedImgId}.jpg`
+    img.src = `img/${selectedMeme.selectedImgId}.jpg`
 
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
-        drawText(meme.lines[0].txt , 200, 50)
+        drawText(selectedMeme.lines[0].txt , 200, 50)
     } 
     
-}
-
-function onSelectImg(elImg) {
-    renderMeme()
 }
 
 function coverCanvasWithImg(elImg) {
@@ -53,3 +50,6 @@ function onWritingTxt(elInput){
     setLineTxt(elInput.value)
     renderMeme()
 }
+
+
+

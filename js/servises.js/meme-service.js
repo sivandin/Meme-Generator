@@ -1,6 +1,5 @@
 'use strict'
 
-var gImgs = [{id: 3, url: 'img/3.jpg', keywords: ['cute', 'baby']}]
 var gMeme = {
  selectedImgId: 2,
  selectedLineIdx: 0,
@@ -21,3 +20,15 @@ function getMeme() {
 function setLineTxt(val) {
 gMeme.lines[0].txt = val
 }
+
+function setImg(imgId) {
+gMeme.selectedImgId=imgId
+}
+
+function _saveSelectedMeme() {
+    const meme = getMeme()
+    saveToStorage('selectedMeme', meme)
+
+}
+
+
