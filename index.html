@@ -22,11 +22,13 @@
         </header>
     </div>
 
-    <main class="flex" >
-        <div class="canvas-container">
+    <main >
+        <section class="canvas-container flex">
 			<canvas width="400" height="400"></canvas>
-            <input type="text" oninput="onWritingTxt(this)" placeholder="Write down your text here">
-		</div>
+            <div>
+                <input type="text" name="userTxt" oninput="onWritingTxt(this)" placeholder="Write down your text here">
+            </div>
+		</section>
 
 		<section class="select-img-container">
 			<img src="img/1.jpg" onclick="onSelectImg(this)" />
