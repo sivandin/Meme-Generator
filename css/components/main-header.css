@@ -1,6 +1,8 @@
 .main-header-container {
+    padding-inline: 1em;
     background-color: var(--primary-background);
     box-shadow: inset 0px -6px 0 #05388a;
+
 }
 
 .main-header {

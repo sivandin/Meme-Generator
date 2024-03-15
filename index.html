@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body>
 
+<body onload="onInit()">
     <div class="main-header-container full">
         <header class="main-header flex space-between align-center">
             <div class="logo">Mama-Meme<span>&#128516;</span></div>
@@ -24,18 +24,20 @@
 
     <main>
         <div class="canvas-container">
-			<h3>Container</h3>
-			<canvas width="400" height="400" onclick="drawRect(event)"></canvas>
+			<canvas width="400" height="400"></canvas>
 		</div>
 
 		<section class="select-img-container">
-			<img src="img/square.jpg" onclick="onSelectImg(this)" />
-			<img src="img/tall.jpg" onclick="onSelectImg(this)" />
-			<img src="img/wide.jpg" onclick="onSelectImg(this)" />
+			<img src="img/1.jpg" onclick="onSelectImg(this)" />
+			<img src="img/2.jpg" onclick="onSelectImg(this)" />
+			<img src="img/3.jpg" onclick="onSelectImg(this)" />
 		</section>
     </main>
 
     <footer>Hi Footer</footer>
+
     <script src="js/main.js" ></script>
+    <script src="js/controllers.js/meme-controller.js" ></script>
+
 </body>
 </html>
