@@ -1,19 +1,33 @@
 'use strict'
 
+let gElCanvas
+let gCtx
+
+function onInit() {
+    gElCanvas = document.querySelector('canvas')
+    gCtx = gElCanvas.getContext('2d')
+
+    // resizeCanvas()
+    renderImg()
+
+    // window.addEventListener('resize', () => resizeCanvas())
+}
+
 function renderImg() {
+    const meme = getMeme()
+
     const img = new Image()
-    img.src = 'img/3.jpg'
+    img.src = `img/${meme.selectedImgId}.jpg`
 
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
-        drawText('Write down your text here', 200, 50)
-    }
-
+        drawText(meme.lines[0].txt , 200, 50)
+    } 
     
 }
 
 function onSelectImg(elImg) {
-    coverCanvasWithImg(elImg)
+    renderImg()
 }
 
 function coverCanvasWithImg(elImg) {
@@ -33,4 +47,8 @@ function drawText(text, x, y) {
 
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
+}
+
+function onWritingTxt(){
+    console.log('hi')
 }
