@@ -8,12 +8,12 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
 
     // resizeCanvas()
-    renderImg()
+    renderMeme()
 
     // window.addEventListener('resize', () => resizeCanvas())
 }
 
-function renderImg() {
+function renderMeme() {
     const meme = getMeme()
 
     const img = new Image()
@@ -27,7 +27,7 @@ function renderImg() {
 }
 
 function onSelectImg(elImg) {
-    renderImg()
+    renderMeme()
 }
 
 function coverCanvasWithImg(elImg) {
@@ -49,6 +49,7 @@ function drawText(text, x, y) {
     gCtx.strokeText(text, x, y)
 }
 
-function onWritingTxt(){
-    console.log('hi')
+function onWritingTxt(elInput){
+    setLineTxt(elInput.value)
+    renderMeme()
 }
