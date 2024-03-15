@@ -7,6 +7,35 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div class="main-header-container full">
+        <header class="main-header flex space-between align-center">
+            <div class="logo">Mama-Meme<span>&#128516;</span></div>
+            <nav class="main-nav">
+                <ul class="main-nav-list clean-list flex align-center space-between">
+                    <li><a class="active" href="#">Journal</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Saved</a></li>
+                    <li><a href="#">Randomize</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <main>
+        <div class="canvas-container">
+			<h3>Container</h3>
+			<canvas width="400" height="400" onclick="drawRect(event)"></canvas>
+		</div>
+
+		<section class="select-img-container">
+			<img src="img/square.jpg" onclick="onSelectImg(this)" />
+			<img src="img/tall.jpg" onclick="onSelectImg(this)" />
+			<img src="img/wide.jpg" onclick="onSelectImg(this)" />
+		</section>
+    </main>
+
+    <footer>Hi Footer</footer>
     <script src="js/main.js" ></script>
 </body>
 </html>

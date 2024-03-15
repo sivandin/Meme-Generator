@@ -1,0 +1,19 @@
+/*setup*/
+@import url(setup/variables.css);
+@import url(setup/typography.css);
+
+/*basics*/
+@import url(basics/base.css);
+@import url(basics/layout.css);
+@import url(basics/helpers.css);
+@import url(basics/buttons.css);
+
+
+/*components*/
+@import url(components/main-header.css);
+@import url(components/main-content.css);
+@import url(components/paging.css);@import url(components/main-header.css);
+@import url(components/main-footer.css);
+
+/*media queris*/
+@import url(setup/mq.css);

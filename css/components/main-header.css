@@ -1,0 +1,52 @@
+.main-header-container {
+    background-color: var(--primary-background);
+    box-shadow: inset 0px -6px 0 #05388a;
+}
+
+.main-header {
+    grid-column: 2;
+
+    padding: 1em;
+}
+
+
+.main-header .logo {
+    color: var(--primary-1);
+    font-size: 2.5em;
+}
+
+.main-header .logo span {
+    font-size: 0.35em;
+}
+
+/*navigation*/
+.main-header>* {
+    grid-column: 2;
+}
+
+.main-header ul {
+    gap: 1em;
+}
+
+.main-header .main-nav-list a {
+    padding-bottom: 0.2em;
+    text-decoration: none;
+    color: var(--primary-2);
+}
+
+
+.main-nav-list a.active,
+.main-nav-list a:hover {
+    color: var(--secondary-base);
+    box-shadow: inset 0px -4px 0 var(--secondary-base);
+}
+
+.main-header .main-nav-list a:hover {
+    cursor: pointer;
+
+    transition: box-shadow 0.4s;
+}
+
+.main-header .main-nav-list>* {
+    text-align: center;
+}

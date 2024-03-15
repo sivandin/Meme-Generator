@@ -1,0 +1,20 @@
+:root {
+    --primary-base: #606060;
+    --primary-1:#FFFFFF;
+    --primary-background:#281b9c;
+    --primary-2: #ddd6d6;
+    --primary-3: rgba(194, 194, 194, 1);
+    --primary-4: #818181;
+    --primary-5: #F8F8F8;
+    --primary-6:#A6A6A6;
+    --primary-7:rgba(225, 224, 224, 1);
+    
+    --secondary-base:#f5d245;
+ 
+    --hover-1:rgba(81, 111, 173, 1);
+    --hover-2: #55acee;
+    --hover-3:#1769ff;
+    --hover-4:rgb(222, 36, 138);
+ 
+    --card-layout-margin-side: 80px;
+  }
