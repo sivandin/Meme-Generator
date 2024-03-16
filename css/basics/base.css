@@ -1,9 +1,9 @@
-*{
+* {
     box-sizing: border-box;
 }
 
 body {
-    min-height: 100vh;
+    min-height: 100%;
 
     width: 100vw;
     margin: 0;
@@ -14,6 +14,11 @@ body {
 
 
 input {
-    font-size: 1em;
+    font-size: 0.6em;
+    max-width: 80%;
 }
 
+.fa-solid{
+    font-size: 1.5em;
+color: var(--secondary-background);
+}

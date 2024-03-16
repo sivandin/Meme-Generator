@@ -1,7 +1,7 @@
 
 body {
     display: grid;
-    grid-template-rows: auto 1fr auto; /* Header, Main content, Footer */
+    grid-template-rows: auto auto 1fr auto; /* Header, Main content, Footer */
     min-height: 100vh; /* Ensure the body covers the entire viewport height */
 }
 
@@ -10,9 +10,9 @@ header {
 }
 
 main {
-    grid-row: 2; /* Place main content in second row */
+    grid-row: 3; /* Place main content in second row */
 }
 
 footer {
-    grid-row: 3; /* Place footer in third row */
+    grid-row: 4; /* Place footer in third row */
 }

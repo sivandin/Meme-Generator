@@ -2,7 +2,7 @@
     justify-content: center;
     gap: 1em;
 
-    width: 60vw;
+    max-width: 60vw;
     padding: 1em;
     margin: 10px auto;
 
@@ -21,6 +21,8 @@ canvas {
     padding: 0.4em;
     border-radius: 20px;
 
+
+    font-size: 1em;
+
     background-color: var(--primary-2);
 }
-

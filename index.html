@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="lib/animate.min.css">
     <title>Mama-Meme</title>
 </head>
 
 <body onload="onInit()">
+    <div class="main-screen" onclick="toggleMenu()"></div>
+
     <div class="main-header-container full">
         <header class="main-header flex space-between align-center">
             <div class="logo">Mama-Meme<span>&#128516;</span></div>
+            <button class="toggle-menu-btn" type="button" onclick="toggleMenu()">☰</button>
             <nav class="main-nav">
                 <ul class="main-nav-list clean-list flex align-center space-between">
                     <li><a class="mim-maker active" href="index.html">Mim-maker</a></li>
@@ -28,6 +32,11 @@
             <canvas width="400" height="400"></canvas>
             <div>
                 <input type="text" name="userTxt" oninput="onWritingTxt(this)" placeholder="Write down your text here">
+                <input type="color" name="stroke-color" value="#000000" oninput="onChangeStrokeColor()"/>
+                <input type="color" name="fill-color" value="#FF8C00" oninput="onChangeFillColor()"/>
+                <a href="#" onclick="onDownloadMeme(this)" download="myMeme.gif">
+                    <i class="fa-solid fa-download"></i>
+                </a>
             </div>
         </section>
     </main>
@@ -36,6 +45,7 @@
 
     <script src="js/servises.js/utils-service.js"></script>
     <script src="js/servises.js/meme-service.js"></script>
+    <script src="https://kit.fontawesome.com/030df104b7.js" crossorigin="anonymous"></script>
 
     <script src="js/main.js"></script>
     <script src="js/controllers.js/meme-controller.js"></script>
@@ -44,4 +54,3 @@
 </body>
 
 </html>
-

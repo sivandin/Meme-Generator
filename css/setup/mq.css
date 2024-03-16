@@ -1,0 +1,99 @@
+/* MOBILE ONLY */
+@media (max-width: 700px) {
+    .main-header .logo {
+        font-size: 2em;
+    }
+    .main-nav {
+        position: fixed;
+        top: 1em;
+        right: 5px;
+        background-color: var(--secondary-background);
+        border-inline-start: 1px solid #22168d;
+        transform: translateY(-100%);
+        /* Initially off-screen */
+        transition: transform 0.6s, box-shadow 0.6s;
+        z-index: 999;
+    }
+
+    .toggle-menu-btn {
+        display: block;
+    }
+
+    body.menu-open .main-nav {
+        box-shadow: -6px 0px 20px rgb(0 0 0 / 25%);
+        transform: translateX(0);
+    }
+
+    .main-nav .main-nav-list {
+        flex-direction: column;
+    }
+
+
+    .main-nav .main-nav-list li {
+        display: block;
+        width: 100%;
+        padding: 8px 10px;
+    }
+
+    .main-nav .main-nav-list a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-nav .main-nav-list a.active {
+        box-shadow: none;
+        font-weight: bold;
+
+        background-color: var(--hover-color);
+        /* Change background color of parent li when a.active is hovered */
+    }
+
+    .main-nav .main-nav-list li:hover {
+        background-color: var(--primary-background);
+    }
+
+    .main-nav .main-nav-list a:hover {
+        color: var(--primary-1);
+    }
+
+.canvas-container {
+    flex-direction: column;
+}
+
+.canvas-container input {
+    max-width: 60%;
+font-size: 0.8em;
+padding: 0.2em;
+}
+
+}
+
+@media (min-width:700px) {
+
+    .toggle-menu-btn {
+        display: none;
+    }
+
+    .canvas-container {
+        max-width: 90vw;
+    }
+}
+
+@media (min-width:1100px) {
+
+    /* .main-nav{
+        overflow-x: hidden;
+    } */
+    .toggle-menu-btn {
+        display: none;
+    }
+
+    .canvas-container {
+        max-width: 60vw;
+    }
+}
+
+
+
+
