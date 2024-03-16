@@ -6,8 +6,12 @@ var gMeme = {
     lines: [
         {
             txt: 'Write down your text here',
-            size: 20,
-            color: 'red'
+            x: 200,
+            y: 50,
+            storkeColor: 'black',
+            fillColor: 'orange',
+            fontSize: 35,
+            fontFamily: 'Arial',
         }
     ]
 }
@@ -19,12 +23,12 @@ function getMeme() {
 
 function setLineTxt(val) {
     gMeme.lines[0].txt = val
-    _saveSelectedImg
+    _saveSelectedImg()
 }
 
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
-    _saveSelectedImg
+    _saveSelectedImg()
 }
 
 function _saveSelectedImg() {
@@ -32,5 +36,18 @@ function _saveSelectedImg() {
     console.log(gMeme)
     saveToStorage('selectedMeme', meme)
 }
+
+function changeStrokeColor(val){
+    gMeme.lines[0].storkeColor=val
+    _saveSelectedImg()
+}
+
+function changeFillColor(val){
+    gMeme.lines[0].fillColor=val
+    _saveSelectedImg()
+}
+
+
+
 
 
