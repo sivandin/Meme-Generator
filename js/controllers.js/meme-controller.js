@@ -12,6 +12,8 @@ function onInit() {
     // resizeCanvas()
     renderMeme()
 
+    document.body.addEventListener('click', closeMenuOnClickOutside)
+
     // window.addEventListener('resize', () => resizeCanvas())
 }
 
@@ -20,12 +22,13 @@ function renderMeme() {
 
     const img = new Image()
     img.src = `img/${selectedMeme.selectedImgId}.jpg`
-
+debugger
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
-        drawText(selectedMeme.lines[0].txt , 200, 50)
-    } 
-    
+        selectedMeme.lines.forEach((line, index) => {
+            drawText(line.txt, line.x, line.y + index * 50, line.storkeColor, line.fillColor, line.fontSize, line.fontFamily) // Pass stroke and fill colors
+        })
+    }
 }
 
 function coverCanvasWithImg(elImg) {
@@ -33,13 +36,11 @@ function coverCanvasWithImg(elImg) {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-function drawText(text, x, y) {
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'orange'
-
-    gCtx.fillStyle = 'lightsteelblue'
-
-    gCtx.font = '30px Arial'
+function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontSize = 30, fontFamily = 'Arial') {
+    gCtx.lineWidth = 1
+    gCtx.strokeStyle = strokeColor
+    gCtx.fillStyle = fillColor
+    gCtx.font = `${fontSize}px ${fontFamily}`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -47,10 +48,31 @@ function drawText(text, x, y) {
     gCtx.strokeText(text, x, y)
 }
 
-function onWritingTxt(elInput){
+
+function onWritingTxt(elInput) {
     setLineTxt(elInput.value)
     renderMeme()
 }
+
+function onDownloadMeme(elLink) {
+    const canvas = document.querySelector('.canvas-container canvas')
+    const dataURL = canvas.toDataURL('myMeme/gif') // Specify image format if needed
+
+    elLink.href = dataURL
+}
+
+function onChangeStrokeColor() {
+    const elStrokeColor = document.querySelector('[name="stroke-color"]').value
+    changeStrokeColor(elStrokeColor)
+    renderMeme()
+}
+
+function onChangeFillColor() {
+    const elFillColor = document.querySelector('[name="fill-color"]').value
+    changeFillColor(elFillColor)
+    renderMeme()
+}
+
 
 
 
