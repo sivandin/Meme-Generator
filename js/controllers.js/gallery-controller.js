@@ -3,6 +3,7 @@
 
 function onInitGallery() {
     renderGallery()
+    document.body.addEventListener('click', closeMenuOnClickOutside)
 }
 
 function renderGallery() {
