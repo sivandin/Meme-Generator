@@ -7,6 +7,8 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
+    let selectedMeme = loadFromStorage('selectedMeme')
+    if (selectedMeme) gMeme = selectedMeme
     // resizeCanvas()
     renderMeme()
 
@@ -14,8 +16,7 @@ function onInit() {
 }
 
 function renderMeme() {
-    let selectedMeme = loadFromStorage('selectedMeme')
-    if (!selectedMeme) selectedMeme=gMeme
+    const selectedMeme = gMeme
 
     const img = new Image()
     img.src = `img/${selectedMeme.selectedImgId}.jpg`

@@ -19,7 +19,7 @@ function onSelectImg(elImg) {
     const imgId = parseInt(imgUrl.split('/').pop().split('.')[0])
 
     setImg(imgId)
-    _saveSelectedMeme()
+    _saveSelectedImg()
 
     window.location.href = 'index.html'
 }
