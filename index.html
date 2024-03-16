@@ -32,8 +32,10 @@
             <canvas width="400" height="400"></canvas>
             <div>
                 <input type="text" name="userTxt" oninput="onWritingTxt(this)" placeholder="Write down your text here">
-                <input type="color" name="stroke-color" value="#000000" oninput="onChangeStrokeColor()"/>
-                <input type="color" name="fill-color" value="#FF8C00" oninput="onChangeFillColor()"/>
+                <input type="color" name="stroke-color" value="#000000" oninput="onChangeStrokeColor()" />
+                <input type="color" name="fill-color" value="#FF8C00" oninput="onChangeFillColor()" />
+                <button class="increase fa-solid fa-square-plus" onclick="onChangeTxtSize('increase')"></button>
+                <button class="decrease fa-solid fa-square-minus" onclick="onChangeTxtSize('decrease')"></button>
                 <a href="#" onclick="onDownloadMeme(this)" download="myMeme.gif">
                     <i class="fa-solid fa-download"></i>
                 </a>

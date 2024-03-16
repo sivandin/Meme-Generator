@@ -22,7 +22,7 @@ function renderMeme() {
 
     const img = new Image()
     img.src = `img/${selectedMeme.selectedImgId}.jpg`
-debugger
+
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         selectedMeme.lines.forEach((line, index) => {
@@ -70,6 +70,11 @@ function onChangeStrokeColor() {
 function onChangeFillColor() {
     const elFillColor = document.querySelector('[name="fill-color"]').value
     changeFillColor(elFillColor)
+    renderMeme()
+}
+
+function onChangeTxtSize(val){
+    changeTxtSize(val)
     renderMeme()
 }
 

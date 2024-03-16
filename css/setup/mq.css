@@ -9,7 +9,7 @@
         right: 5px;
         background-color: var(--secondary-background);
         border-inline-start: 1px solid #22168d;
-        transform: translateY(-100%);
+        transform: translateY(-110%);
         /* Initially off-screen */
         transition: transform 0.6s, box-shadow 0.6s;
         z-index: 999;

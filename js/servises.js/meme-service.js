@@ -47,6 +47,13 @@ function changeFillColor(val){
     _saveSelectedImg()
 }
 
+function changeTxtSize(val){
+    if (val==='increase') gMeme.lines[0].fontSize+=2
+    else (gMeme.lines[0].fontSize-=2)
+    _saveSelectedImg()
+}
+
+
 
 
 
