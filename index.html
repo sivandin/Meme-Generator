@@ -28,8 +28,8 @@
     </div>
 
     <main>
-        <section class="canvas-container flex">
-            <canvas width="400" height="400"></canvas>
+        <section class="canvas-container flex" onclick="onCanvasClick(event)">
+            <canvas width="400" height="400" ></canvas>
             <div>
                 <input type="text" name="userTxt" oninput="onWritingTxt(this)" placeholder="Write down your text here">
                 <input type="color" name="stroke-color" value="#000000" oninput="onChangeStrokeColor()" />
