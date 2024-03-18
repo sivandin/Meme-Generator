@@ -2,6 +2,7 @@
 
 let gElCanvas
 let gCtx
+const gBorders = []
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -32,22 +33,26 @@ function renderMeme() {
 
 function renderText(lines) {
     lines.forEach((line, index) => {
-        drawText(line.txt, line.x, line.y + index * 50, line.storkeColor, line.fillColor, line.fontSize, line.fontFamily)
+        drawText(line.txt, line.x, line.y + index * 50, line.strokeColor, line.fillColor, line.fontSize, line.fontFamily)
     })
 }
 
 function renderBorders(lines) {
+    gBorders.length = 0
+
     lines.forEach((line, index) => {
+        let rect = null
+
         if (line.isSelected) {
             const lineWidth = 1
             const lineColor = 'black'
-            drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor)
+            rect = drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor)
         } else {
             const lineWidth = 0
             const lineColor = 'rgb(0,0,0,0)'
-            drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor)
-
+            rect = drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor)
         }
+        gBorders.push(rect)
     })
 }
 
@@ -75,7 +80,14 @@ function drawBorder(x, y, line, lineWidth, lineColor) {
     const padding = 5
     gCtx.lineWidth = lineWidth
     gCtx.strokeStyle = lineColor
-    gCtx.strokeRect(x - textWidth / 2 - padding, y - line.fontSize / 2 - padding, textWidth + 2 * padding, line.fontSize + 2 * padding)
+    const rect = {
+        x: x - textWidth / 2 - padding,
+        y: y - line.fontSize / 2 - padding,
+        width: textWidth + 2 * padding,
+        height: line.fontSize + 2 * padding
+    }
+    gCtx.strokeRect(rect.x, rect.y, rect.width, rect.height)
+    return rect
 }
 
 function onWritingTxt(elInput) {
@@ -90,16 +102,12 @@ function onDownloadMeme(elLink) {
     elLink.href = dataURL
 }
 
-function onChangeStrokeColor() {
-    const elStrokeColor = document.querySelector('[name="stroke-color"]').value
-    changeStrokeColor(elStrokeColor)
-    renderMeme()
-}
-
-function onChangeFillColor() {
-    const elFillColor = document.querySelector('[name="fill-color"]').value
-    changeFillColor(elFillColor)
-    renderMeme()
+function onChangeColor(colorName, brushClassName, elColor) {
+    const colorVal = elColor.value;
+    const elBrush = document.querySelector(`.${brushClassName}`);
+    elBrush.style.color = colorVal;
+    changeColor(colorVal, colorName);
+    renderMeme();
 }
 
 function onChangeTxtSize(val) {
@@ -108,20 +116,18 @@ function onChangeTxtSize(val) {
 }
 
 function onAddLine() {
-
     onCleanSelected()
-    // debugger
     addLine()
-    renderPlaceholder()
 
+    renderPlaceholder()
     renderMeme()
 }
 
 function onSwitchLine() {
     onCleanSelected()
     switchLine()
-    renderPlaceholder()
 
+    renderPlaceholder()
     renderMeme()
 }
 
@@ -137,35 +143,22 @@ function onCleanSelected() {
     renderMeme()
 }
 
-function isTxtClicked(line, clickX, clickY) {
-    debugger
-    const textWidth = gCtx.measureText(line.txt).width
-    const padding = 5
-    const minX = line.x - textWidth / 2 - padding
-    const maxX = line.x + textWidth / 2 + padding
-    const minY = line.y - line.fontSize / 2 - padding
-    const maxY = line.y + line.fontSize / 2 + padding
-
-    return clickX >= minX && clickX <= maxX && clickY >= minY && clickY <= maxY
-}
-
 function onCanvasClick(ev) {
-    debugger
-    const canvasRect = gElCanvas.getBoundingClientRect()
-    const mouseX = ev.clientX - canvasRect.left
-    const mouseY = ev.clientY - canvasRect.top
+    const clickX = ev.offsetX
+    const clickY = ev.offsetY
 
-    // Iterate over each text line
-    gMeme.lines.forEach((line, idx) => {
-        console.log(line, 'line', idx, 'idx')
-        // Check if the click coordinates are inside the bounding box of the text line
-        if (isTxtClicked(line, mouseX, mouseY)) {
-            console.log('txt clicked')
-            gMeme.selectedLineIdx = idx
+    for (let i = 0; i < gBorders.length; i++) {
+        const rect = gBorders[i]
+        if (clickX >= rect.x && clickX <= rect.x + rect.width
+            && clickY >= rect.y && clickY <= rect.y + rect.height) {
+            cleanSelected()
+            gMeme.selectedLineIdx = i
+            gMeme.lines[i].isSelected = true
             renderPlaceholder()
             renderMeme()
+            return
         }
-    })
+    }
+    return false // Click is not inside any rectangle
 }
-
 
