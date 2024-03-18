@@ -9,7 +9,7 @@ var gMeme = {
             txt: 'Write down your text here',
             x: 200,
             y: 50,
-            storkeColor: 'black',
+            strokeColor: 'black',
             fillColor: 'orange',
             fontSize: 35,
             fontFamily: 'Arial',
@@ -19,7 +19,7 @@ var gMeme = {
             txt: 'Write down your text here',
             x: 200,
             y: 60,
-            storkeColor: 'black',
+            strokeColor: 'black',
             fillColor: 'orange',
             fontSize: 35,
             fontFamily: 'Arial',
@@ -50,16 +50,26 @@ function _saveSelectedImg() {
     saveToStorage('selectedMeme', meme)
 }
 
-function changeStrokeColor(val) {
-    const lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].storkeColor = val
-    _saveSelectedImg()
-}
+// function changeStrokeColor(val) {
+//     const lineIdx = gMeme.selectedLineIdx
+//     gMeme.lines[lineIdx].storkeColor = val
+//     _saveSelectedImg()
+// }
 
-function changeFillColor(val) {
-    const lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].fillColor = val
-    _saveSelectedImg()
+// function changeFillColor(val) {
+//     const lineIdx = gMeme.selectedLineIdx
+//     gMeme.lines[lineIdx].fillColor = val
+//     _saveSelectedImg()
+// }
+
+function changeColor(val, name) {
+    const lineIdx = gMeme.selectedLineIdx;
+    if (name === "stroke-color") {
+        gMeme.lines[lineIdx].strokeColor = val;
+    } else if (name === "fill-color") {
+        gMeme.lines[lineIdx].fillColor = val;
+    }
+    _saveSelectedImg();
 }
 
 function changeTxtSize(val) {
@@ -81,7 +91,7 @@ function addLine() {
         fillColor: 'orange',
         fontSize: 35,
         fontFamily: 'Arial',
-        isSelected: 'true'
+        isSelected: true
     })
 
     gNextY += 10 // Increase y coordinate for the next line
