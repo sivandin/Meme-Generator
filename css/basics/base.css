@@ -15,10 +15,16 @@ body {
 
 input {
     font-size: 0.6em;
-    max-width: 80%;
 }
 
 .fa-solid{
     font-size: 1.5em;
-color: var(--secondary-background);
+}
+
+i {
+    font-size: 1.5em;
+}
+
+.hidden {
+    display: none;
 }

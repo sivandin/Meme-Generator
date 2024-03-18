@@ -11,7 +11,6 @@
 
 <body onload="onInit()">
     <div class="main-screen" onclick="toggleMenu()"></div>
-
     <div class="main-header-container full">
         <header class="main-header flex space-between align-center">
             <div class="logo">Mama-Meme<span>&#128516;</span></div>
@@ -29,24 +28,43 @@
 
     <main>
         <section class="canvas-container flex" onclick="onCanvasClick(event)">
-            <canvas width="400" height="400" ></canvas>
-            <div>
-                <input type="text" name="userTxt" oninput="onWritingTxt(this)" placeholder="Write down your text here">
-                <input type="color" name="stroke-color" value="#000000" oninput="onChangeStrokeColor()" />
-                <input type="color" name="fill-color" value="#FF8C00" oninput="onChangeFillColor()" />
-                <button class="increase" onclick="onChangeTxtSize('increase')">
-                    <i class="fa-solid fa-a"></i>
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-                <button class="decrease" onclick="onChangeTxtSize('decrease')">
-                    <i class="fa-solid fa-a"></i>
-                    <i class="fa-solid fa-minus"></i>
-                </button>
-                <button class="add-line fa-solid fa-square-plus" onclick="onAddLine()"></button>
-                <button class="fa-solid fa-right-left" onclick="onSwitchLine()"></button>
-                <a href="#" onclick="onDownloadMeme(this)" download="myMeme.gif">
-                    <i class="fa-solid fa-download"></i>
-                </a>
+            <canvas width="400" height="400"></canvas>
+            <div class="tool-bar flex align-center ">
+                <section class="flex align-center">
+                    <input type="text" name="userTxt" oninput="onWritingTxt(this)"
+                        placeholder="Write down your text here">
+                </section>
+                <section class="lines flex align-center">
+                    <button class="add-line fa-solid fa-plus" onclick="onAddLine()"></button>
+                    <button class="switch-line fa-solid fa-right-left" onclick="onSwitchLine()"></button>
+                </section>
+                <section class="font-settings flex align-center">
+                    <label class="fa-solid fa-paintbrush" style="color: #000000">
+                        <div>
+                            <input class="hidden" type="color" name="stroke-color" value="#000000"
+                                oninput="onChangeColor('stroke-color', 'fa-paintbrush', this)" />
+                        </div>
+                    </label>
+                    <label class="fa-solid fa-brush" style="color: #FF8C00;">
+                        <input class="hidden" type="color" name="fill-color" value="#FF8C00"
+                            oninput="onChangeColor('fill-color', 'fa-brush', this)" />
+                    </label>
+                    <div class="font-size flex">
+                        <button class="increase" onclick="onChangeTxtSize('increase')">
+                            <i class="fa-solid fa-a"></i>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <button class="decrease" onclick="onChangeTxtSize('decrease')">
+                            <i class="fa-solid fa-a"></i>
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                    </div>
+                </section>
+                <section class="flex align-center">
+                    <a href="#" onclick="onDownloadMeme(this)" download="myMeme.gif">
+                        <i class="fa-solid fa-download"></i>
+                    </a>
+                </section>
             </div>
         </section>
     </main>

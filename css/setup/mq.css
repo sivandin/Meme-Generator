@@ -1,5 +1,5 @@
 /* MOBILE ONLY */
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .main-header .logo {
         font-size: 2em;
     }
@@ -59,17 +59,39 @@
 
 .canvas-container {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80vw;
 }
 
-.canvas-container input {
-    max-width: 60%;
-font-size: 0.8em;
-padding: 0.2em;
+canvas {
+    max-width: 100%;
+}
+
+[name="userTxt"]  {
+
+    max-width: 90%;
+padding-block: 0.4em;
+padding-inline: 1em;
+font-size: 1em;
+}
+
+.lines .add-line{
+    font-size: 2.5em;
+}
+
+.lines .switch-line{
+    font-size: 1.8em;
+}
+
+.font-settings .font-size{
+    flex-direction: column;
+    gap: 0.5em;
 }
 
 }
 
-@media (min-width:700px) {
+@media (min-width:800px) {
 
     .toggle-menu-btn {
         display: none;

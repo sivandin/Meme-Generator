@@ -1,5 +1,5 @@
 .canvas-container {
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 1em;
 
     max-width: 60vw;
@@ -12,17 +12,101 @@
 
 canvas {
     display: block;
-    background-color: white;
 }
 
-.canvas-container input {
+.canvas-container section {
+    justify-content: center;
+}
+
+
+.canvas-container .tool-bar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    width: 85%;
+    padding-block: 1em;
+}
+
+
+[name="userTxt"] {
     text-align: center;
 
-    padding: 0.4em;
+    padding: 0.5em;
     border-radius: 20px;
+    font-size: 1.3em;
 
-
-    font-size: 1em;
-
-    background-color: var(--primary-2);
+    background-color: blue;
+    color: aliceblue;
+    max-width: 90%;
 }
+
+input::placeholder {
+    color: aliceblue;
+    opacity: 0.5;
+}
+
+.canvas-container .lines>* {
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 0 0 0;
+}
+
+.lines .add-line {
+    font-size: 3em;
+    color: rgb(32, 231, 62)
+}
+
+.lines .switch-line {
+    font-size: 2.3em;
+    color: rgb(231, 214, 32);
+    rotate: 90deg;
+}
+
+.font-settings {
+    gap: 1em;
+    background-color: blue;
+    padding: 1em;
+    border-radius: 20px;
+    font-size: 1.3em;
+    max-width: 100%;
+}
+
+.font-settings input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    min-width: 5em;
+    height: 3em;
+    padding: 0;
+}
+
+.font-settings button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    font-size: 0.9em;
+
+
+    background-color:transparent;
+    
+}
+
+.font-settings button >*{
+    color: black;
+
+}
+.font-settings .font-size{
+    gap:1em;
+}
+.font-settings .fa-plus,.font-settings .fa-minus{
+    font-size: 1em;
+    justify-content: center;
+
+}
+
+.fa-download{
+    font-size: 3.5em;
+}
+
