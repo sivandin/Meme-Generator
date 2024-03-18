@@ -44,7 +44,7 @@ function renderBorders(lines) {
         let rect = null
 
         if (line.isSelected) {
-            const lineWidth = 1
+            const lineWidth = 2
             const lineColor = 'black'
             rect = drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor)
         } else {
@@ -64,6 +64,7 @@ function coverCanvasWithImg(elImg) {
 
 
 function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontSize = 30, fontFamily = 'Arial') {
+    debugger
     gCtx.lineWidth = 1
     gCtx.strokeStyle = strokeColor
     gCtx.fillStyle = fillColor
@@ -75,20 +76,26 @@ function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontS
     gCtx.strokeText(text, x, y)
 }
 
-function drawBorder(x, y, line, lineWidth, lineColor) {
-    const textWidth = gCtx.measureText(line.txt).width
-    const padding = 5
+
+function drawBorder(x, y, line, lineWidth, lineColor, diff=2) {
+    const textWidth = gCtx.measureText(line.txt).width;
+    const paddingPercentage = 0.01 // Adjust as needed (10% padding)
+    const fontSize = line.fontSize
+
+    const rectPadding = diff 
+
     gCtx.lineWidth = lineWidth
     gCtx.strokeStyle = lineColor
     const rect = {
-        x: x - textWidth / 2 - padding,
-        y: y - line.fontSize / 2 - padding,
-        width: textWidth + 2 * padding,
-        height: line.fontSize + 2 * padding
+        x: x - textWidth / 2 - rectPadding,
+        y: y - fontSize / 2 - rectPadding,
+        width: textWidth + 2 * rectPadding,
+        height: fontSize + 2 * rectPadding
     }
     gCtx.strokeRect(rect.x, rect.y, rect.width, rect.height)
     return rect
 }
+
 
 function onWritingTxt(elInput) {
     setLineTxt(elInput.value)
@@ -162,3 +169,12 @@ function onCanvasClick(ev) {
     return false // Click is not inside any rectangle
 }
 
+function onFontFamChange(elFontSelect) {
+    fontFamChange(elFontSelect.value)
+    renderMeme()
+}
+
+function onFontSizeSelect(elFontSize) {
+    fontSizeSelect(elFontSize.value)
+    renderMeme()
+}

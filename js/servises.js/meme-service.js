@@ -63,13 +63,13 @@ function _saveSelectedImg() {
 // }
 
 function changeColor(val, name) {
-    const lineIdx = gMeme.selectedLineIdx;
+    const lineIdx = gMeme.selectedLineIdx
     if (name === "stroke-color") {
-        gMeme.lines[lineIdx].strokeColor = val;
+        gMeme.lines[lineIdx].strokeColor = val
     } else if (name === "fill-color") {
-        gMeme.lines[lineIdx].fillColor = val;
+        gMeme.lines[lineIdx].fillColor = val
     }
-    _saveSelectedImg();
+    _saveSelectedImg()
 }
 
 function changeTxtSize(val) {
@@ -111,4 +111,29 @@ function cleanSelected() {
         gMeme.lines[i].isSelected = false
     }
     _saveSelectedImg()
+}
+
+function fontFamChange(font) {
+    const idx = gMeme.selectedLineIdx
+    gMeme.lines[idx].fontFamily = font
+    _saveSelectedImg()
+}
+
+// function fontSizeSelect(size) {
+//     debugger
+//     const idx = gMeme.selectedLineIdx
+//     gMeme.lines[idx].fontSize = size
+//     _saveSelectedImg()
+// }
+
+function fontSizeSelect(size) {
+    const idx = gMeme.selectedLineIdx;
+    const oldFontSize = gMeme.lines[idx].fontSize;
+    const newSize = parseInt(size); // Ensure the size is parsed as an integer
+    const diff = newSize - oldFontSize; // Calculate the difference
+
+    gMeme.lines[idx].fontSize = newSize;
+    _saveSelectedImg();
+
+    return diff; // Return the difference for further processing if needed
 }
