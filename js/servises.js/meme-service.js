@@ -52,18 +52,6 @@ function _saveSelectedImg() {
     saveToStorage('selectedMeme', meme)
 }
 
-// function changeStrokeColor(val) {
-//     const lineIdx = gMeme.selectedLineIdx
-//     gMeme.lines[lineIdx].storkeColor = val
-//     _saveSelectedImg()
-// }
-
-// function changeFillColor(val) {
-//     const lineIdx = gMeme.selectedLineIdx
-//     gMeme.lines[lineIdx].fillColor = val
-//     _saveSelectedImg()
-// }
-
 function changeColor(val, name) {
     const lineIdx = gMeme.selectedLineIdx
     if (name === "stroke-color") {
@@ -81,14 +69,13 @@ function changeTxtSize(val) {
     _saveSelectedImg()
 }
 
-
 function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length
     gMeme.lines.push({
         txt: 'Write down your text here',
         x: 200,
         y: gNextY,
-        strokeColor: 'black', // Corrected typo in property name
+        strokeColor: 'black', 
         fillColor: 'orange',
         fontSize: 35,
         fontFamily: 'Arial',
@@ -136,21 +123,14 @@ function fontFamChange(font) {
     _saveSelectedImg()
 }
 
-// function fontSizeSelect(size) {
-//     debugger
-//     const idx = gMeme.selectedLineIdx
-//     gMeme.lines[idx].fontSize = size
-//     _saveSelectedImg()
-// }
-
 function fontSizeSelect(size) {
-    const idx = gMeme.selectedLineIdx;
-    const oldFontSize = gMeme.lines[idx].fontSize;
-    const newSize = parseInt(size); // Ensure the size is parsed as an integer
-    const diff = newSize - oldFontSize; // Calculate the difference
+    const idx = gMeme.selectedLineIdx
+    const oldFontSize = gMeme.lines[idx].fontSize
+    const newSize = parseInt(size) 
+    const diff = newSize - oldFontSize 
 
-    gMeme.lines[idx].fontSize = newSize;
-    _saveSelectedImg();
+    gMeme.lines[idx].fontSize = newSize
+    _saveSelectedImg()
 
-    return diff; // Return the difference for further processing if needed
+    return diff 
 }
