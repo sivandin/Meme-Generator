@@ -33,7 +33,7 @@ function renderMeme() {
 
 function renderText(lines) {
     lines.forEach((line, index) => {
-        drawText(line.txt, line.x, line.y + index * 50, line.strokeColor, line.fillColor, line.fontSize, line.fontFamily)
+        drawText(line.txt, line.x, line.y + index * 50, line.strokeColor, line.fillColor, line.fontSize, line.fontFamily, line.align)
     })
 }
 
@@ -63,12 +63,12 @@ function coverCanvasWithImg(elImg) {
 }
 
 
-function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontSize = 30, fontFamily = 'Arial') {
+function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontSize = 30, fontFamily = 'Arial', align='center') {
     gCtx.lineWidth = 1
     gCtx.strokeStyle = strokeColor
     gCtx.fillStyle = fillColor
     gCtx.font = `${fontSize}px ${fontFamily}`
-    gCtx.textAlign = 'center'
+    gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
 
     gCtx.fillText(text, x, y)
@@ -182,5 +182,11 @@ function onFontFamChange(elFontSelect) {
 
 function onFontSizeSelect(elFontSize) {
     fontSizeSelect(elFontSize.value)
+    renderMeme()
+}
+
+function onAlignTxt(direction){
+    debugger
+    alignTxt(direction)
     renderMeme()
 }

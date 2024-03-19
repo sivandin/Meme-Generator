@@ -13,6 +13,7 @@ var gMeme = {
             fillColor: 'orange',
             fontSize: 35,
             fontFamily: 'Arial',
+            align: 'center',
             isSelected: true,
         },
         {
@@ -23,6 +24,7 @@ var gMeme = {
             fillColor: 'orange',
             fontSize: 35,
             fontFamily: 'Arial',
+            align: 'center',
             isSelected: false,
         }
     ]
@@ -90,6 +92,7 @@ function addLine() {
         fillColor: 'orange',
         fontSize: 35,
         fontFamily: 'Arial',
+        align: 'center',
         isSelected: true
     })
 
@@ -105,13 +108,20 @@ function switchLine() {
     _saveSelectedImg()
 }
 
-function delteLine(){
+function delteLine() {
     const idx = gMeme.selectedLineIdx
     gMeme.lines.splice(idx, 1)
     console.log(gMeme)
     _saveSelectedImg()
 }
 
+function alignTxt(direction) {
+    const currLineIdx = gMeme.selectedLineIdx
+    if (direction === 'right') gMeme.lines[currLineIdx].align = 'right'
+    else if (direction === 'left') gMeme.lines[currLineIdx].align = 'left'
+    else gMeme.lines[currLineIdx].align = 'center'
+    _saveSelectedImg()
+}
 
 function cleanSelected() {
     for (var i = 0; i < gMeme.lines.length; i++) {
