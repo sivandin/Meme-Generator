@@ -81,7 +81,6 @@ function changeTxtSize(val) {
 
 
 function addLine() {
-    debugger
     gMeme.selectedLineIdx = gMeme.lines.length
     gMeme.lines.push({
         txt: 'Write down your text here',
@@ -105,6 +104,14 @@ function switchLine() {
     gMeme.lines[gMeme.selectedLineIdx].isSelected = 'true'
     _saveSelectedImg()
 }
+
+function delteLine(){
+    const idx = gMeme.selectedLineIdx
+    gMeme.lines.splice(idx, 1)
+    console.log(gMeme)
+    _saveSelectedImg()
+}
+
 
 function cleanSelected() {
     for (var i = 0; i < gMeme.lines.length; i++) {

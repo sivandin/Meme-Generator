@@ -64,7 +64,6 @@ function coverCanvasWithImg(elImg) {
 
 
 function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontSize = 30, fontFamily = 'Arial') {
-    debugger
     gCtx.lineWidth = 1
     gCtx.strokeStyle = strokeColor
     gCtx.fillStyle = fillColor
@@ -136,6 +135,13 @@ function onSwitchLine() {
 
     renderPlaceholder()
     renderMeme()
+}
+
+function onDeleteLine(){
+    onCleanSelected()
+    delteLine()
+    renderMeme()
+
 }
 
 function renderPlaceholder() {

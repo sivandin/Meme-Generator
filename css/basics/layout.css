@@ -13,6 +13,22 @@ main {
     grid-row: 3; /* Place main content in second row */
 }
 
+.canvas-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr minmax(1fr, 2fr);
+    gap: 1em;
+}
+
+.font-settings{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.font-family, .size {
+    grid-column: span 3; /* Span 3 columns */
+}
+
 footer {
     grid-row: 4; /* Place footer in third row */
 }
