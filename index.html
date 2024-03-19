@@ -27,50 +27,68 @@
     </div>
 
     <main>
-        <section class="canvas-container" onclick="onCanvasClick(event)">
-            <canvas width="400" height="400"></canvas>
+        <section class="gallery-container">
+            <button onclick="openGallery()">Click to choose an image</button>
+            <dialog class="gallery-dialog">
+                <div class="close" onclick="closeGallery()">&times;</div>
+                <div class="select-img-container"></div>
+            </dialog>
+        </section>
+
+        <section class="canvas-container">
+            <canvas width="400" height="400" onclick="onCanvasClick(event)"></canvas>
+
             <div class="tool-bar flex align-center ">
                 <section class="flex align-center">
                     <input type="text" name="userTxt" oninput="onWritingTxt(this)"
                         placeholder="Write down your text here">
                 </section>
+
                 <section class="lines flex align-center">
                     <button class="add-line fa-solid fa-plus" onclick="onAddLine()"></button>
                     <button class="switch-line fa-solid fa-right-left" onclick="onSwitchLine()"></button>
                     <button class="delete-line fa-solid fa-trash" onclick="onDeleteLine()"></button>
                 </section>
+
                 <section class="font-settings">
                     <button class="increase" onclick="onChangeTxtSize('increase')">
                         <i class="fa-solid fa-a"></i>
                         <i class="fa-solid fa-plus"></i>
                     </button>
+
                     <button class="decrease" onclick="onChangeTxtSize('decrease')">
                         <i class="fa-solid fa-a"></i>
                         <i class="fa-solid fa-minus"></i>
                     </button>
+
+                    <button class="align-left" onclick="onAlignTxt('left')">
+                        <i class="fa-solid fa-align-left"></i>
+                    </button>
+
                     <button class="align-right" onclick="onAlignTxt('rigth')">
                         <i class="fa-solid fa-align-right"></i>
                     </button>
-                    <button class="align-left" onclick="onAlignTxt('left')">
-                        <i class="fa-solid fa-align-left"></i>
-                     </button>
-                     <label class="fa-solid fa-paintbrush" style="color: #000000">
+
+                    <label class="fa-solid fa-paintbrush" style="color: #000000">
                         <div>
                             <input class="hidden" type="color" name="stroke-color" value="#000000"
                                 oninput="onChangeColor('stroke-color', 'fa-paintbrush', this)" />
                         </div>
                     </label>
+
                     <label class="fa-solid fa-brush" style="color: #FF8C00;">
                         <input class="hidden" type="color" name="fill-color" value="#FF8C00"
                             oninput="onChangeColor('fill-color', 'fa-brush', this)" />
                     </label>
-                        <select class="font-family" onchange="onFontFamChange(this)">
+
+                    <select class="font-family" onchange="onFontFamChange(this)">
                         <option value="Arial">Arial</option>
                         <option value="Times-new-roman">Times-new-roman</option>
                         <option value="Cambria">Cambria</option>
                         <option value="Georgia">Georgia</option>
                         <option value="Verdana">Verdana</option>
                     </select>
+
                     <select class="size" onchange="onFontSizeSelect(this)">
                         <option value="45">45</option>
                         <option value="20">20</option>
@@ -81,12 +99,12 @@
                         <option value="54">54</option>
                     </select>
                 </section>
+
                 <section class="flex align-center">
                     <a href="#" onclick="onDownloadMeme(this)" download="myMeme.gif">
                         <i class="fa-solid fa-download"></i>
                     </a>
                 </section>
-
             </div>
         </section>
     </main>
@@ -94,6 +112,7 @@
     <footer>Hi Footer</footer>
 
     <script src="js/servises.js/utils-service.js"></script>
+    <script src="js/servises.js/gallery-service.js"></script>
     <script src="js/servises.js/meme-service.js"></script>
     <script src="https://kit.fontawesome.com/030df104b7.js" crossorigin="anonymous"></script>
 

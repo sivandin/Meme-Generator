@@ -12,6 +12,19 @@ body {
     background-color: var(--primary-background);
 }
 
+button {
+    cursor: pointer;
+    border: 2px solid;
+    border-right-color: black;
+    border-bottom-color: black;
+    border-top-color: rgb(66, 66, 66);
+    border-left-color: rgb(66, 66, 66);
+    border-radius: 10px;
+
+    font-size: 2em;
+    background-color: transparent;
+}
+
 
 input {
     font-size: 0.6em;
@@ -23,6 +36,10 @@ input {
 
 i {
     font-size: 1.5em;
+}
+
+.btn-clicked {
+    display: none;
 }
 
 .hidden {

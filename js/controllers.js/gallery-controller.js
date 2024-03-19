@@ -24,3 +24,14 @@ function onSelectImg(elImg) {
 
     window.location.href = 'index.html'
 }
+
+function openGallery() {
+    const elDialog = document.querySelector('.gallery-dialog')
+    elDialog.showModal()
+    renderGallery()
+  }
+  
+  function closeGallery() {
+    const elDialog = document.querySelector('.gallery-dialog')
+    elDialog.close()
+  }

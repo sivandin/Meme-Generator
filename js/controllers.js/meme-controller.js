@@ -27,6 +27,7 @@ function renderMeme() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         renderText(selectedMeme.lines)
+        debugger
         renderBorders(selectedMeme.lines)
     }
 }
@@ -80,8 +81,8 @@ function drawBorder(x, y, line, lineWidth, lineColor, diff=2) {
     const textWidth = gCtx.measureText(line.txt).width;
     const paddingPercentage = 0.01 // Adjust as needed (10% padding)
     const fontSize = line.fontSize
-
-    const rectPadding = diff 
+    const rectPadding = textWidth * paddingPercentage + diff
+    // const rectPadding = diff 
 
     gCtx.lineWidth = lineWidth
     gCtx.strokeStyle = lineColor
@@ -94,6 +95,7 @@ function drawBorder(x, y, line, lineWidth, lineColor, diff=2) {
     gCtx.strokeRect(rect.x, rect.y, rect.width, rect.height)
     return rect
 }
+
 
 
 function onWritingTxt(elInput) {
@@ -187,6 +189,12 @@ function onFontSizeSelect(elFontSize) {
 
 function onAlignTxt(direction){
     debugger
+    const elBtnLeft = document.querySelector('.align-left')
+    const elBtnRight = document.querySelector('.align-right')
+
+    if (direction==='right') elBtnRight.classList.add('.btn-clicked')
+    if (direction==='left') elBtnLeft.classList.add('.btn-clicked')
+
     alignTxt(direction)
     renderMeme()
 }
