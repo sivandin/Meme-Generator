@@ -28,7 +28,12 @@
 
     <main>
         <section class="gallery-container">
-            <button onclick="openGallery()">Click to choose an image</button>
+            <button onclick="openGallery()">Gallery
+                <i class="fa-regular fa-images"></i>
+            </button>
+            <button onclick="onChooseRandomImg()">I'm flexible
+                <i class="fa-solid fa-shuffle"></i>
+            </button>
             <dialog class="gallery-dialog">
                 <div class="close" onclick="closeGallery()">&times;</div>
                 <div class="select-img-container"></div>
@@ -112,8 +117,8 @@
     <footer>Hi Footer</footer>
 
     <script src="js/servises.js/utils-service.js"></script>
-    <script src="js/servises.js/gallery-service.js"></script>
     <script src="js/servises.js/meme-service.js"></script>
+    <script src="js/servises.js/gallery-service.js"></script>
     <script src="https://kit.fontawesome.com/030df104b7.js" crossorigin="anonymous"></script>
 
     <script src="js/main.js"></script>

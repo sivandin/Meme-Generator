@@ -10,9 +10,18 @@ h2{
 
 .gallery-container button {
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 0.5em;
     margin: 1em;
-background-color: blue;}
+background-color: blue;
+font-size: 1.5em;
+}
+
+
+
+
 
 .close {
     cursor: pointer;

@@ -13,6 +13,9 @@ function onInit() {
     // resizeCanvas()
     renderMeme()
 
+    createImgs()
+    renderGallery()
+
     document.body.addEventListener('click', closeMenuOnClickOutside)
 
     // window.addEventListener('resize', () => resizeCanvas())
@@ -27,7 +30,6 @@ function renderMeme() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
         renderText(selectedMeme.lines)
-        debugger
         renderBorders(selectedMeme.lines)
     }
 }

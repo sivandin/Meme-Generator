@@ -16,6 +16,7 @@ function renderGallery() {
 }
 
 function onSelectImg(elImg) {
+    debugger
     const imgUrl = elImg.src
     const imgId = parseInt(imgUrl.split('/').pop().split('.')[0])
 
@@ -35,3 +36,15 @@ function openGallery() {
     const elDialog = document.querySelector('.gallery-dialog')
     elDialog.close()
   }
+
+  function onChooseRandomImg() {
+   chooseRandomId()
+   debugger
+   chooseRandomLine()
+//    setImg(randomId)
+   renderMeme()
+  }
+
+  
+
+  
