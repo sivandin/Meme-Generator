@@ -21,8 +21,6 @@ function onSelectImg(elImg) {
     const imgId = parseInt(imgUrl.split('/').pop().split('.')[0])
 
     setImg(imgId)
-    _saveSelectedImg()
-
     window.location.href = 'index.html'
 }
 
@@ -37,13 +35,7 @@ function openGallery() {
     elDialog.close()
   }
 
-  function onChooseRandomImg() {
-   chooseRandomId()
-   debugger
-   chooseRandomLine()
-//    setImg(randomId)
-   renderMeme()
-  }
+  
 
   
 

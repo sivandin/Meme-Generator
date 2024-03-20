@@ -79,21 +79,22 @@ function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontS
 }
 
 
-function drawBorder(x, y, line, lineWidth, lineColor, diff=2) {
+function drawBorder(x, y, line, lineWidth, lineColor) {
+    console.log(line)
     const textWidth = gCtx.measureText(line.txt).width;
     const paddingPercentage = 0.01 // Adjust as needed (10% padding)
-    const fontSize = line.fontSize
-    const rectPadding = textWidth * paddingPercentage + diff
-    // const rectPadding = diff 
-
-    gCtx.lineWidth = lineWidth
-    gCtx.strokeStyle = lineColor
+    const fontSize = +line.fontSize
+    const rectPadding = textWidth * paddingPercentage 
+    console.log(textWidth, 'textwidth', rectPadding, 'rectpadding')
+    
     const rect = {
         x: x - textWidth / 2 - rectPadding,
         y: y - fontSize / 2 - rectPadding,
-        width: textWidth + 2 * rectPadding,
+        width: textWidth +  rectPadding,
         height: fontSize + 2 * rectPadding
     }
+    gCtx.lineWidth = lineWidth
+    gCtx.strokeStyle = lineColor
     gCtx.strokeRect(rect.x, rect.y, rect.width, rect.height)
     return rect
 }
@@ -106,6 +107,8 @@ function onWritingTxt(elInput) {
 }
 
 function onDownloadMeme(elLink) {
+    cleanSelected()
+    renderMeme()
     const canvas = document.querySelector('.canvas-container canvas')
     const dataURL = canvas.toDataURL('myMeme/gif') // Specify image format if needed
 
@@ -190,7 +193,6 @@ function onFontSizeSelect(elFontSize) {
 }
 
 function onAlignTxt(direction){
-    debugger
     const elBtnLeft = document.querySelector('.align-left')
     const elBtnRight = document.querySelector('.align-right')
 
@@ -200,3 +202,13 @@ function onAlignTxt(direction){
     alignTxt(direction)
     renderMeme()
 }
+
+function onChooseRandomMeme() {
+    deleteLines()
+    var line = chooseRandomLine()
+    addLine(line, 22)
+    chooseRandomImgId()
+    renderPlaceholder()
+    renderMeme()
+
+   }

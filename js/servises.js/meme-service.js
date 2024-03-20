@@ -38,15 +38,15 @@ function getMeme() {
 function setLineTxt(val) {
     const lineIdx = gMeme.selectedLineIdx
     gMeme.lines[lineIdx].txt = val
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
-function _saveSelectedImg() {
+function _saveSelectedMeme() {
     const meme = getMeme()
     console.log(gMeme)
     saveToStorage('selectedMeme', meme)
@@ -59,32 +59,32 @@ function changeColor(val, name) {
     } else if (name === "fill-color") {
         gMeme.lines[lineIdx].fillColor = val
     }
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
 function changeTxtSize(val) {
     const lineIdx = gMeme.selectedLineIdx
     if (val === 'increase') gMeme.lines[lineIdx].fontSize += 2
     else (gMeme.lines[lineIdx].fontSize -= 2)
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
-function addLine() {
+function addLine(txt='Write down your text here', fontSize = 35) {
     gMeme.selectedLineIdx = gMeme.lines.length
     gMeme.lines.push({
-        txt: 'Write down your text here',
+        txt,
         x: 200,
         y: gNextY,
         strokeColor: 'black', 
         fillColor: 'orange',
-        fontSize: 35,
+        fontSize,
         fontFamily: 'Arial',
         align: 'center',
         isSelected: true
     })
 
     gNextY += 10 // Increase y coordinate for the next line
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
 function switchLine() {
@@ -92,14 +92,14 @@ function switchLine() {
     else gMeme.selectedLineIdx = 0
 
     gMeme.lines[gMeme.selectedLineIdx].isSelected = 'true'
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
 function delteLine() {
     const idx = gMeme.selectedLineIdx
     gMeme.lines.splice(idx, 1)
     console.log(gMeme)
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
 function alignTxt(direction) {
@@ -107,20 +107,18 @@ function alignTxt(direction) {
     if (direction === 'right') gMeme.lines[currLineIdx].align = 'right'
     else if (direction === 'left') gMeme.lines[currLineIdx].align = 'left'
     else gMeme.lines[currLineIdx].align = 'center'
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
 function cleanSelected() {
-    for (var i = 0; i < gMeme.lines.length; i++) {
-        gMeme.lines[i].isSelected = false
-    }
-    _saveSelectedImg()
+    gMeme.lines.forEach(line => line.isSelected = false)
+    _saveSelectedMeme()
 }
 
 function fontFamChange(font) {
     const idx = gMeme.selectedLineIdx
     gMeme.lines[idx].fontFamily = font
-    _saveSelectedImg()
+    _saveSelectedMeme()
 }
 
 function fontSizeSelect(size) {
@@ -130,8 +128,21 @@ function fontSizeSelect(size) {
     const diff = newSize - oldFontSize 
 
     gMeme.lines[idx].fontSize = newSize
-    _saveSelectedImg()
+    _saveSelectedMeme()
 
     return diff 
 }
 
+function chooseRandomImgId() {
+    var randomId = getRandomIntInclusive(1, 18)
+    gMeme.selectedImgId = randomId
+}
+
+function chooseRandomLine() {
+    var randomLineIdx = getRandomIntInclusive(1, 16)
+    return gTxtLines[randomLineIdx]
+}
+
+function deleteLines() {
+    gMeme.lines=[]
+}
