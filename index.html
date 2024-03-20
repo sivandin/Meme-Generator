@@ -19,8 +19,7 @@
                 <ul class="main-nav-list clean-list flex align-center space-between">
                     <li><a class="mim-maker active" href="index.html">Mim-maker</a></li>
                     <li><a class="gallery" href="gallery.html">Gallery</a></li>
-                    <li><a class="saved" href="#">Saved</a></li>
-                    <li><a class="randomize" href="#">Randomize</a></li>
+                    <li><a class="saved" href="saved.html">Saved</a></li>
                 </ul>
             </nav>
         </header>
@@ -31,7 +30,7 @@
             <button onclick="openGallery()">Gallery
                 <i class="fa-regular fa-images"></i>
             </button>
-            <button onclick="onChooseRandomImg()">I'm flexible
+            <button onclick="onChooseRandomMeme()">I'm flexible
                 <i class="fa-solid fa-shuffle"></i>
             </button>
             <dialog class="gallery-dialog">
@@ -105,9 +104,12 @@
                     </select>
                 </section>
 
-                <section class="flex align-center">
+                <section class="export-import flex align-center">
                     <a href="#" onclick="onDownloadMeme(this)" download="myMeme.gif">
                         <i class="fa-solid fa-download"></i>
+                    </a>
+                    <a href="#" onclick="onSaveMeme(this)">
+                        <i class="fa-solid fa-floppy-disk"></i>
                     </a>
                 </section>
             </div>
@@ -119,11 +121,14 @@
     <script src="js/servises.js/utils-service.js"></script>
     <script src="js/servises.js/meme-service.js"></script>
     <script src="js/servises.js/gallery-service.js"></script>
+    <script src="js/servises.js/saved-service.js"></script>
     <script src="https://kit.fontawesome.com/030df104b7.js" crossorigin="anonymous"></script>
 
     <script src="js/main.js"></script>
     <script src="js/controllers.js/meme-controller.js"></script>
     <script src="js/controllers.js/gallery-controller.js"></script>
+    <script src="js/controllers.js/saved-controller.js"></script>
+
 
 </body>
 

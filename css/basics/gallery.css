@@ -1,9 +1,9 @@
-h2{
+h2 {
     text-align: center;
 }
 
 .gallery-container {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -15,22 +15,18 @@ h2{
     gap: 1em;
     padding: 0.5em;
     margin: 1em;
-background-color: blue;
-font-size: 1.5em;
+    background-color: blue;
+    font-size: 1.5em;
 }
-
-
-
-
 
 .close {
     cursor: pointer;
     font-size: 2em;
     font-weight: bold;
-    color:aliceblue;
+    color: aliceblue;
 }
 
-.gallery-dialog{
+.gallery-dialog {
     background-color: rgba(9, 126, 228, 0.938);
 }
 
@@ -56,5 +52,3 @@ font-size: 1.5em;
     transition: 1s;
     filter: unset;
 }
-
-

@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 
-<body onload="onInitGallery()">
+<body onload="onInitSaved()">
     <div class="main-screen" onclick="toggleMenu()"></div>
 
     <div class="main-header-container full">
@@ -19,29 +19,30 @@
             <nav class="main-nav">
                 <ul class="main-nav-list clean-list flex align-center space-between">
                     <li><a class="mim-maker" href="index.html">Mim-maker</a></li>
-                    <li><a class="gallery active" href="gallery.html">Gallery</a></li>
-                    <li><a class="saved" href="saved.html">Saved</a></li>
+                    <li><a class="gallery" href="gallery.html">Gallery</a></li>
+                    <li><a class="saved active" href="saved.html">Saved</a></li>
                 </ul>
             </nav>
         </header>
     </div>
 
     <main>
-        <h2>1. Choose an image</h2>
-        <section class="select-img-container"></section>
+        <h2>Saved Images</h2>
+        <section class="saved-container select-img-container"></section>
+
     </main>
 
     <footer>Hi Footer</footer>
 
     <script src="js/servises.js/utils-service.js"></script>
-    <script src="js/servises.js/gallery-service.js"></script>
+    <script src="js/servises.js/saved-service.js"></script>
     <script src="js/servises.js/meme-service.js"></script>
     <script src="https://kit.fontawesome.com/030df104b7.js" crossorigin="anonymous"></script>
 
 
     <script src="js/main.js"></script>
     <script src="js/controllers.js/meme-controller.js"></script>
-    <script src="js/controllers.js/gallery-controller.js"></script>
+    <script src="js/controllers.js/saved-controller.js"></script>
 
 </body>
 

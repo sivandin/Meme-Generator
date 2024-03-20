@@ -3,6 +3,8 @@
 let gElCanvas
 let gCtx
 const gBorders = []
+let gSavedMemes = []
+
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -10,6 +12,9 @@ function onInit() {
 
     let selectedMeme = loadFromStorage('selectedMeme')
     if (selectedMeme) gMeme = selectedMeme
+
+    let savedMemes = loadFromStorage('savedGallery')
+    if (savedMemes) gSavedMemes = savedMemes
     // resizeCanvas()
     renderMeme()
 
@@ -21,26 +26,25 @@ function onInit() {
     // window.addEventListener('resize', () => resizeCanvas())
 }
 
-function renderMeme() {
-    const selectedMeme = gMeme
+function renderMeme(selectedMeme=gMeme, ctx = gCtx) {
 
     const img = new Image()
     img.src = `img/${selectedMeme.selectedImgId}.jpg`
 
     img.onload = () => {
-        gCtx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
-        renderText(selectedMeme.lines)
-        renderBorders(selectedMeme.lines)
+        ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
+        renderText(selectedMeme.lines, ctx)
+        renderBorders(selectedMeme.lines, ctx)
     }
 }
 
-function renderText(lines) {
+function renderText(lines, ctx) {
     lines.forEach((line, index) => {
-        drawText(line.txt, line.x, line.y + index * 50, line.strokeColor, line.fillColor, line.fontSize, line.fontFamily, line.align)
+        drawText(line.txt, line.x, line.y + index * 50, line.strokeColor, line.fillColor, line.fontSize, line.fontFamily, line.align, ctx)
     })
 }
 
-function renderBorders(lines) {
+function renderBorders(lines, ctx) {
     gBorders.length = 0
 
     lines.forEach((line, index) => {
@@ -49,11 +53,11 @@ function renderBorders(lines) {
         if (line.isSelected) {
             const lineWidth = 2
             const lineColor = 'black'
-            rect = drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor)
+            rect = drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor, ctx)
         } else {
             const lineWidth = 0
             const lineColor = 'rgb(0,0,0,0)'
-            rect = drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor)
+            rect = drawBorder(line.x, line.y + index * 50, line, lineWidth, lineColor, ctx)
         }
         gBorders.push(rect)
     })
@@ -66,22 +70,22 @@ function coverCanvasWithImg(elImg) {
 }
 
 
-function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontSize = 30, fontFamily = 'Arial', align='center') {
-    gCtx.lineWidth = 1
-    gCtx.strokeStyle = strokeColor
-    gCtx.fillStyle = fillColor
-    gCtx.font = `${fontSize}px ${fontFamily}`
-    gCtx.textAlign = align
-    gCtx.textBaseline = 'middle'
+function drawText(text, x, y, strokeColor = 'black', fillColor = 'orange', fontSize = 30, fontFamily = 'Arial', align='center', ctx = gCtx) {
+    ctx.lineWidth = 1
+    ctx.strokeStyle = strokeColor
+    ctx.fillStyle = fillColor
+    ctx.font = `${fontSize}px ${fontFamily}`
+    ctx.textAlign = align
+    ctx.textBaseline = 'middle'
 
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    ctx.fillText(text, x, y)
+    ctx.strokeText(text, x, y)
 }
 
 
-function drawBorder(x, y, line, lineWidth, lineColor) {
+function drawBorder(x, y, line, lineWidth, lineColor, ctx = gCtx) {
     console.log(line)
-    const textWidth = gCtx.measureText(line.txt).width;
+    const textWidth = ctx.measureText(line.txt).width;
     const paddingPercentage = 0.01 // Adjust as needed (10% padding)
     const fontSize = +line.fontSize
     const rectPadding = textWidth * paddingPercentage 
@@ -93,9 +97,9 @@ function drawBorder(x, y, line, lineWidth, lineColor) {
         width: textWidth +  rectPadding,
         height: fontSize + 2 * rectPadding
     }
-    gCtx.lineWidth = lineWidth
-    gCtx.strokeStyle = lineColor
-    gCtx.strokeRect(rect.x, rect.y, rect.width, rect.height)
+    ctx.lineWidth = lineWidth
+    ctx.strokeStyle = lineColor
+    ctx.strokeRect(rect.x, rect.y, rect.width, rect.height)
     return rect
 }
 
@@ -210,5 +214,15 @@ function onChooseRandomMeme() {
     chooseRandomImgId()
     renderPlaceholder()
     renderMeme()
+   }
 
+   function onSaveMeme() {
+    debugger
+    cleanSelected()
+
+    gSavedMemes.push({...gMeme})
+    saveMemeToSaved()
+
+    const savedPageURL = 'saved.html'
+    window.location.href = savedPageURL
    }

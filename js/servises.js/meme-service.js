@@ -1,6 +1,8 @@
 'use strict'
 
 let gNextY = 70
+var gTxtLines
+
 var gMeme = {
     selectedImgId: 2,
     selectedLineIdx: 0,
@@ -42,6 +44,7 @@ function setLineTxt(val) {
 }
 
 function setImg(imgId) {
+    debugger
     gMeme.selectedImgId = imgId
     _saveSelectedMeme()
 }
@@ -146,3 +149,4 @@ function chooseRandomLine() {
 function deleteLines() {
     gMeme.lines=[]
 }
+

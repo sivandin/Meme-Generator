@@ -1,7 +1,7 @@
 'use strict'
 var gImgs
 var gImg
-var gTxtLines
+
 let nextId = 1
 createImgs()
 

@@ -124,6 +124,10 @@ input::placeholder {
     font-size: 1em;
 }
 
-.fa-download {
+.export-import {
+    gap:0.7em;
+}
+
+.export-import a>* {
     font-size: 3.5em;
 }
