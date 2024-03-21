@@ -2,13 +2,14 @@
 
 
 function onInitGallery() {
+    createImgs()
     renderGallery()
     document.body.addEventListener('click', closeMenuOnClickOutside)
 }
 
 function renderGallery() {
     const elImgContainer = document.querySelector('.select-img-container')
-    const imgs = getImgs()
+    const imgs = getImgs(gFilterBy)
     const strHtmls = imgs.map(img =>
         `<img src="${img.url}" alt="" onclick="onSelectImg(this)">`
     )
@@ -16,7 +17,6 @@ function renderGallery() {
 }
 
 function onSelectImg(elImg) {
-    debugger
     const imgUrl = elImg.src
     const imgId = parseInt(imgUrl.split('/').pop().split('.')[0])
 
@@ -33,6 +33,18 @@ function openGallery() {
   function closeGallery() {
     const elDialog = document.querySelector('.gallery-dialog')
     elDialog.close()
+  }
+
+  function onImgsFilter() {
+    const input = document.querySelector('.gallery-dialog input')
+    gFilterBy= input.value
+    
+    renderGallery()
+  }
+
+  function onClearFilter() {
+    gFilterBy=''
+    renderGallery()
   }
 
   

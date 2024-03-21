@@ -35,6 +35,18 @@
             </button>
             <dialog class="gallery-dialog">
                 <div class="close" onclick="closeGallery()">&times;</div>
+                <input type="text" placeholder="Search images" list="keywords" oninput="onImgsFilter()">
+                <datalist id="keywords">
+                    <option value="funny">
+                    <option value="happy">
+                    <option value="crazy">
+                    <option value="pet">
+                    <option value="celebrity">
+                    <option value="cute">
+                    <option value="baby">
+                    <option value="cartoon">
+                </datalist>
+                <button class="clear-btn" onclick="onClearFilter()">Clear</button>
                 <div class="select-img-container"></div>
             </dialog>
         </section>
@@ -43,6 +55,12 @@
             <canvas width="400" height="400" onclick="onCanvasClick(event)"></canvas>
 
             <div class="tool-bar flex align-center ">
+
+                <button class="share-btn" onclick="onUploadImg()">
+                    <i class="fa-brands fa-square-facebook"></i>
+                    Share
+                </button>
+
                 <section class="flex align-center">
                     <input type="text" name="userTxt" oninput="onWritingTxt(this)"
                         placeholder="Write down your text here">
@@ -102,6 +120,13 @@
                         <option value="48">48</option>
                         <option value="54">54</option>
                     </select>
+
+                    <button onclick="onAddEmoji(this)" value="&#128540;">&#128540;</button>
+                    <button onclick="onAddEmoji(this)" value="&#128514;">&#128514;</button>
+                    <button onclick="onAddEmoji(this)" value="&#128520;">&#128520;</button>
+                    <button onclick="onAddEmoji(this)" value="&#128525;">&#128525;</button>
+                    <button onclick="onAddEmoji(this)" value="&#128526;">&#128526;</button>
+                    <button onclick="onAddEmoji(this)" value="&#129321;">&#129321;</button>
                 </section>
 
                 <section class="export-import flex align-center">
@@ -111,9 +136,11 @@
                     <a href="#" onclick="onSaveMeme(this)">
                         <i class="fa-solid fa-floppy-disk"></i>
                     </a>
+                    <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" />
                 </section>
             </div>
         </section>
+
     </main>
 
     <footer>Hi Footer</footer>
@@ -125,6 +152,7 @@
     <script src="https://kit.fontawesome.com/030df104b7.js" crossorigin="anonymous"></script>
 
     <script src="js/main.js"></script>
+    <script src="js/controllers.js/share&upload-controller.js"></script>
     <script src="js/controllers.js/meme-controller.js"></script>
     <script src="js/controllers.js/gallery-controller.js"></script>
     <script src="js/controllers.js/saved-controller.js"></script>

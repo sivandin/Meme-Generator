@@ -27,6 +27,8 @@
 /*navigation*/
 .main-header>* {
     grid-column: 2;
+    font-size: 1.2em;
+
 }
 
 .main-header ul {

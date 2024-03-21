@@ -3,15 +3,17 @@
 function onInitSaved() {
     let savedMemes = loadFromStorage('savedGallery')
     if (savedMemes) gSavedMemes = savedMemes
+
+    createImgs()
     console.log(gSavedMemes)
     renderSavedMemes()
     document.body.addEventListener('click', closeMenuOnClickOutside)
 }
 
+
 function renderSavedMemes() {
     const savedContainer = document.querySelector('.saved-container')
     savedContainer.innerHTML = ''
-
     gSavedMemes.forEach((meme, index) => {
         const memeContainer = createMemeContainer()
         const canvas = createCanvas()
@@ -20,7 +22,7 @@ function renderSavedMemes() {
         appendElementsToContainer(memeContainer, canvas, deleteButton)
         savedContainer.appendChild(memeContainer)
         const ctxSaved = canvas.getContext('2d')
-        renderMeme(meme, ctxSaved)
+        renderMeme(meme, ctxSaved, canvas)
 
         canvas.addEventListener('click', () => {
             const clickedMeme = gSavedMemes[index]
@@ -56,7 +58,6 @@ function appendElementsToContainer(container, ...elements) {
 }
 
 function moveMemeToMainCanvas(meme) {
-    debugger
     gMeme = meme
     _saveSelectedMeme()
     

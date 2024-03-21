@@ -31,7 +31,8 @@ var gMeme = {
         }
     ]
 }
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+var gKeywordSearchCountMap = { 'funny': 7, 'pet': 4, 'baby': 3, 'celebrity': 11, 'cute':3, 'happy':4,
+'crazy':2, 'cartoon':1 }
 
 function getMeme() {
     return gMeme
@@ -44,7 +45,6 @@ function setLineTxt(val) {
 }
 
 function setImg(imgId) {
-    debugger
     gMeme.selectedImgId = imgId
     _saveSelectedMeme()
 }
@@ -72,12 +72,12 @@ function changeTxtSize(val) {
     _saveSelectedMeme()
 }
 
-function addLine(txt='Write down your text here', fontSize = 35) {
+function addLine(type = 'line', txt='Write down your text here', fontSize = 35, x=200, y=gNextY) {
     gMeme.selectedLineIdx = gMeme.lines.length
     gMeme.lines.push({
         txt,
-        x: 200,
-        y: gNextY,
+        x,
+        y,
         strokeColor: 'black', 
         fillColor: 'orange',
         fontSize,
@@ -85,8 +85,7 @@ function addLine(txt='Write down your text here', fontSize = 35) {
         align: 'center',
         isSelected: true
     })
-
-    gNextY += 10 // Increase y coordinate for the next line
+    if (type === 'line') gNextY += 10 // Increase y coordinate for the next line
     _saveSelectedMeme()
 }
 

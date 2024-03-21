@@ -34,7 +34,7 @@ i,
 }
 
 
-[name="userTxt"] {
+[name="userTxt"], .share-btn {
     text-align: center;
     max-width: 90%;
 
@@ -44,6 +44,14 @@ i,
     font-size: 1.3em;
     background-color: blue;
     color: aliceblue;
+}
+
+.share-btn  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.4em;
+padding: 0.5em;
 }
 
 input::placeholder {
