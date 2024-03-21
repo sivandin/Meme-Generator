@@ -35,7 +35,7 @@
             </button>
             <dialog class="gallery-dialog">
                 <div class="close" onclick="closeGallery()">&times;</div>
-                <input type="text" placeholder="Search images" list="keywords" oninput="onImgsFilter()">
+                <input name="search" type="search" placeholder="Search..." list="keywords" oninput="onImgsFilter()">
                 <datalist id="keywords">
                     <option value="funny">
                     <option value="happy">
@@ -46,7 +46,7 @@
                     <option value="baby">
                     <option value="cartoon">
                 </datalist>
-                <button class="clear-btn" onclick="onClearFilter()">Clear</button>
+
                 <div class="select-img-container"></div>
             </dialog>
         </section>
@@ -130,20 +130,23 @@
                 </section>
 
                 <section class="export-import flex align-center">
-                    <a href="#" onclick="onDownloadMeme(this)" download="myMeme.gif">
+                    <a class="download" href="#" onclick="onDownloadMeme(this)" download="myMeme.gif">
                         <i class="fa-solid fa-download"></i>
                     </a>
-                    <a href="#" onclick="onSaveMeme(this)">
+                    <a class="save" href="#" onclick="onSaveMeme(this)">
                         <i class="fa-solid fa-floppy-disk"></i>
                     </a>
-                    <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" />
+                    <label class="upload-label">
+                        <input type="file" class="upload" name="image" onchange="onImgInput(event)" accept="image/*" />
+                        <i class="fa-solid fa-upload upload-icon"></i>
+                    </label>
                 </section>
             </div>
         </section>
 
     </main>
 
-    <footer>Hi Footer</footer>
+    <footer>©Sivan Din</footer>
 
     <script src="js/servises.js/utils-service.js"></script>
     <script src="js/servises.js/meme-service.js"></script>

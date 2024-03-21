@@ -16,7 +16,7 @@ main {
 .canvas-container {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr minmax(1fr, 2fr);
+    grid-template-columns: 1fr minmax(1fr, 2fr) 1fr;
     gap: 1em;
 }
 
@@ -31,4 +31,5 @@ main {
 
 footer {
     grid-row: 4; /* Place footer in third row */
+
 }

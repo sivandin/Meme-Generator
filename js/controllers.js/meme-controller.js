@@ -32,10 +32,10 @@ function onInit() {
 function addClickOutsideListener() {
     document.body.addEventListener('click', (event) => {
         const clickedElement = event.target
-        const canvasContainer = document.querySelector('.canvas-container')
+        const canvas = document.querySelector('canvas')
 
-        // Check if the clicked element is outside the canvas container
-        if (!canvasContainer.contains(clickedElement)) {
+        // Check if the clicked element is the canvas
+        if (clickedElement !== canvas) {
             cleanSelected()
             renderMeme()
         }

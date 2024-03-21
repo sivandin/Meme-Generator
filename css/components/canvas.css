@@ -26,6 +26,14 @@ canvas {
     padding-block: 1em;
 }
 
+.tool-bar section button:hover:not(.lines button) {
+    background-color: var(--secondary-background)
+}
+
+ .add-line:hover, .switch-line:hover, .delete-line:hover {
+    animation: headShake 1s 400ms;
+}
+
 button,
 i,
 .font-settings>*,
@@ -138,4 +146,21 @@ input::placeholder {
 
 .export-import a>* {
     font-size: 3.5em;
+}
+
+.export-import .download{
+    color: rgb(32, 231, 62)
+}
+
+.export-import .save{
+    color: rgb(231, 214, 32);
+}
+
+.export-import .upload{
+display: none;
+}
+
+.upload-icon {
+    font-size: 3.2em;
+    color: red;
 }

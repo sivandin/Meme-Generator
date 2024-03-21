@@ -85,7 +85,11 @@ function addLine(type = 'line', txt='Write down your text here', fontSize = 35, 
         align: 'center',
         isSelected: true
     })
-    if (type === 'line') gNextY += 10 // Increase y coordinate for the next line
+    if (type === 'line') {
+        if (gNextY<300) gNextY += 10
+        else (gNextY=30)
+        
+     } // Increase y coordinate for the next line
     _saveSelectedMeme()
 }
 

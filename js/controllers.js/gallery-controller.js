@@ -27,11 +27,16 @@ function onSelectImg(elImg) {
 function openGallery() {
     const elDialog = document.querySelector('.gallery-dialog')
     elDialog.showModal()
+    elDialog.classList.add('open')
+
     renderGallery()
   }
+
+
   
   function closeGallery() {
     const elDialog = document.querySelector('.gallery-dialog')
+    elDialog.classList.remove('open');
     elDialog.close()
   }
 

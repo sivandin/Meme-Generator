@@ -40,14 +40,14 @@ function createMemeContainer() {
 function createCanvas() {
     const canvas = document.createElement('canvas')
     canvas.classList.add('saved-meme-canvas')
-    canvas.width = 400
-    canvas.height = 400
+    canvas.width = 300
+    canvas.height = 300
     return canvas
 }
 
 function createDeleteButton(index) {
     const deleteButton = document.createElement('button')
-    deleteButton.textContent = 'Delete'
+    deleteButton.textContent = 'X'
     deleteButton.classList.add('delete-button')
     deleteButton.addEventListener('click', () => onDeleteSavedMeme(index))
     return deleteButton
