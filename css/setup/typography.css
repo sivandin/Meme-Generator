@@ -8,3 +8,12 @@
     src: url(/fonts/Passero.ttf);
   }
 
+  @font-face {
+    font-family: gotu;
+    src: url(fonts/Gotu-Regular.ttf)
+  }
+  
+  @font-face {
+    font-family: passero;
+    src: url(fonts/Passero.ttf);
+  }
